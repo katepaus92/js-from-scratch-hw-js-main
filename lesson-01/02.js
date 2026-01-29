@@ -14,4 +14,4 @@ while (number <= MAX)
   factorial *=number;
   number++;
 }
-console.log("Факториал числа 10: "+ factorial);
+//console.log("Факториал числа 10: "+ factorial);
