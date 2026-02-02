@@ -15,4 +15,4 @@ while (number <= MAX){
   }
   number++;
 }
-//console.log("Сумма всех нечетных чисел от 1 до 20: " + sum);
+console.log("Сумма всех нечетных чисел от 1 до 20: " + sum);

@@ -10,5 +10,5 @@ while (number <= MAX){
     sum += number;
     number++;
 }
-//console.log("Сумма чисел от 1 до 20: "+sum);
+console.log("Сумма чисел от 1 до 20: "+ sum);
 
