@@ -7,5 +7,5 @@ function isEven(a) {
         even = false
     return even
 }
-let res = isEven(10);
+let res = isEven(2);
 console.log('isEven: ', res);
