@@ -3,9 +3,11 @@
 
 function isEven(a) {
     let even = true
-    if (a % 2 === 1)
+    if (a % 2 === 1 || a % 2 === -1)
         even = false
     return even
 }
-let res = isEven(2);
+let res = isEven(-1);
 console.log('isEven: ', res);
+
+
