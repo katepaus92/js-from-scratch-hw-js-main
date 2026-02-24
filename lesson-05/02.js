@@ -35,4 +35,19 @@ const gallery = {
   'The Scream': 'Edvard Munch',
 }
 
-function updateGallery() {}
+console.log(gallery)
+
+function updateGallery(gallery, artworkName, newValue) {
+  if (gallery.hasOwnProperty(artworkName)){    
+    console.log(`Произведение "${artworkName}" обновлено.`);    
+  } else {
+    console.log(`Произведение "${artworkName}" добавлено в галерею.`);
+  }
+  gallery[artworkName] = newValue;
+  
+  return gallery;
+}
+updateGallery(gallery, 'Mona Lisa', 'Leonardo da Vinci, 1503-1506')
+updateGallery(gallery, 'The Persistence of Memory', 'Salvador Dali')
+
+console.log(gallery)
