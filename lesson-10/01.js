@@ -29,7 +29,20 @@ const model = {
     this.movies.push(newMovie)
     view.renderMovies(this.movies)
   },
-  // your code
+  // Реализация метода deleteMovie
+  deleteMovie(id) {
+    // Находим индекс фильма с указанным id
+    const movieIndex = this.movies.findIndex(movie => movie.id == id)
+    
+    // Если фильм найден, удаляем его
+    if (movieIndex !== -1) {
+      this.movies.splice(movieIndex, 1)
+      // Обновляем отображение фильмов на странице
+      view.renderMovies(this.movies)
+      return true
+    }
+    return false
+  }
 }
 
 const view = {
@@ -50,7 +63,21 @@ const view = {
       inputDescription.value = ''
     })
 
-    // your code
+    // Добавляем обработчик события для удаления фильмов
+    const list = document.querySelector('.list')
+    list.addEventListener('click', (event) => {
+      // Проверяем, что клик был по кнопке удаления
+      if (event.target.classList.contains('delete-button')) {
+        // Получаем родительский элемент li (фильм)
+        const movieElement = event.target.closest('.movie')
+        if (movieElement) {
+          // Получаем id фильма из атрибута id элемента li
+          const movieId = movieElement.id
+          // Передаем id в метод deleteMovie объекта controller
+          controller.deleteMovie(movieId)
+        }
+      }
+    })
   },
   renderMovies(movies) {
     const list = document.querySelector('.list')
@@ -90,7 +117,18 @@ const controller = {
       view.displayMessage('Заполните все поля!', true)
     }
   },
-  // your code
+  // Реализация метода deleteMovie
+  deleteMovie(id) {
+    // Передаем id в метод deleteMovie объекта model
+    const isDeleted = model.deleteMovie(id)
+    
+    // Отображаем сообщение об успешном удалении
+    if (isDeleted) {
+      view.displayMessage('Фильм успешно удалён!')
+    } else {
+      view.displayMessage('Ошибка при удалении фильма!', true)
+    }
+  }
 }
 
 function init() {
